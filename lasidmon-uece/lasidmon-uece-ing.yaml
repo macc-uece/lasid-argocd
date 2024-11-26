@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lasidmon-uece
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - lasidmon.uece.br
+      secretName: lasidmon.uece.br-secret
+  rules:
+    - host: "lasidmon.uece.br"
+      http:
+        paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: lasidmon-uece
+              port:
+                number: 80

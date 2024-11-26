@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lasid-old-uece
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - lasid-old.uece.br
+      secretName: lasid-old.uece.br-secret
+  rules:
+    - host: "lasid-old.uece.br"
+      http:
+        paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: lasid-old-uece
+              port:
+                number: 80

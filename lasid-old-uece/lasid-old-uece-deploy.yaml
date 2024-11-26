@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lasid-old-uece
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: lasid-old-uece
+  template:
+    metadata:
+      labels:
+        app: lasid-old-uece
+    spec:
+      containers:
+      - image: nginxdemos/hello:latest
+        name: lasid-old-uece
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

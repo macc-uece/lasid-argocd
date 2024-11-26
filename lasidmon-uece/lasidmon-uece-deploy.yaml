@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lasidmon-uece
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: lasidmon-uece
+  template:
+    metadata:
+      labels:
+        app: lasidmon-uece
+    spec:
+      containers:
+      - image: nginxdemos/hello:latest
+        name: lasidmon-uece
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
