@@ -16,5 +16,6 @@ spec:
       containers:
       - image: nginxdemos/hello:latest
         name: lasid-uece
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
