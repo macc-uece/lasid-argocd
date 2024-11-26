@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: lasid_uece
+  name: lasid-uece
   namespace: default
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
@@ -19,6 +19,6 @@ spec:
           path: /
           backend:
             service:
-              name: lasid_uece
+              name: lasid-uece
               port:
                 number: 80
