@@ -7,7 +7,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: lasid_uece
+      app: lasid-uece
   template:
     metadata:
       labels:
